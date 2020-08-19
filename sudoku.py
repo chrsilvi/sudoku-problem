@@ -1,13 +1,13 @@
 combinations = {}
+# examples of what the dictionary of results will look like:
 # combinations[1] = [1]
 # combinations[3] = [2, 1]
 # combinations[5] = [[4, 1], [3, 2]]
 digits = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-
-# def function(variables, sum):
-#     for x in range(variables):
-
+# this goes through up to 3 digits, trying to figure out how to formulate
+# this to go through anywhere from 1-9 digits
+# need to use recursion somehow in the bowels of this function
 def calculate():
     for sums in range(18):
         combinations[sums] = []
