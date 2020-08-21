@@ -8,31 +8,32 @@ digits = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 # this goes through up to 3 digits, trying to figure out how to formulate
 # this to go through anywhere from 1-9 digits
 # need to use recursion somehow in the bowels of this function
-def calculate():
-    for sums in range(18):
-        combinations[sums] = []
+
+variable_list = []
+current_sum = 1
+def variables():
+    global current_sum
+    global digits
+    while current_sum < 46:
         for x in range(len(digits)):
+            variable_list.append(digits[x])
+            digits.remove(digits[x])
+            verify_combination(variable_list, current_sum)
+            print(current_sum)
+            print(variable_list)
+            current_sum += 1
             for y in range(len(digits)):
-                if digits[x] + digits[y] == sums and digits[x] != digits[y]:
-                    newCombo = [digits[x], digits[y]]
-                    newCombo.sort()
-                    if newCombo not in combinations[sums]:
-                        combinations[sums] += [newCombo]
-                for z in range(len(digits)):
-                    if digits[x] + digits[y] + digits[z] == sums and digits[x] != digits[y] and digits[y] != digits[z] and digits[x] != digits[z]:
-                        newCombo = [digits[x], digits[y], digits[z]]
-                        newCombo.sort()
-                        if newCombo not in combinations[sums]:
-                            combinations[sums] += [newCombo]
+                variable_list.append(digits[y])
+                print(variable_list)
+                variable_list.remove(digits[y])
+            digits = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            variable_list.remove(digits[x])
 
-def combinations(integers, sum):
-    total = 0
-    for x in range(integers):
-        total += integers[x]
-    if total == sum:
-        return true
+    #cycle through and provide every combination of variables
 
+def verify_combination(variable_list, current_sum):
+    pass
+    #double check if that combination of variables equals the sum
+    #adds it to combinations if so
 
-calculate()
-for x, y in combinations.items():
-    print(x, y)
+variables();
